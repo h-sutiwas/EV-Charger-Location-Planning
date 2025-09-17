@@ -22,3 +22,4 @@ PROFILE = "driving-car"
 ORS_OPTIONS = {"avoid_borders": "all"}
 
 client = ors.Client(key=ORS_API)
+town_halls_coor = pd.read_excel("data/Coordinates/coor.xlsx")
