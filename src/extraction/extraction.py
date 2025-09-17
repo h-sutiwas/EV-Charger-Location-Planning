@@ -1,13 +1,10 @@
 import os
 from collections import deque
 
-import geopy as gp
+import geopy as gpd
 import pandas as pd
 
 import numpy as np
-
-import seaborn as sns
-import matplotlib as plt
 
 import openrouteservice as ors
 from shapely.geometry import Point, LineString
