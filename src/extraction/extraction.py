@@ -37,7 +37,7 @@ WRITE_POINTS = True
 SNAP_RADIUS_M = 10000
 USE_RADIUSES = [-1, -1]
 
-town_halls_coor = pd.read_excel("data/Coordinates/coor.xlsx")
+town_halls_coor = pd.read_excel("../data/Coordinates/coor.xlsx")
 town_halls_coor['coordinates'] = town_halls_coor.apply(lambda row: [row['lon'], row['lat']], axis=1)
 coords = tuple(town_halls_coor['coordinates'])
 pairs_coords = list(combinations(coords, 2))
