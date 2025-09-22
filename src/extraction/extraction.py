@@ -21,6 +21,7 @@ with open(r"api\openrouteservice.pem") as f_in:
     ORS_API = f_in.read()
 
 PROFILE = "driving-car"
+FORMAT = "geojson"
 ORS_OPTIONS = {"avoid_borders": "all"}
 
 MAX_PER_MIN = 30
@@ -54,12 +55,14 @@ test_coords = [[100.5019413, 13.7533776], [98.9173938, 8.0590009]]
 client = ors.Client(key=ORS_API)
 test_route = client.directions(
     coordinates=test_coords, 
-    profile='driving-car',
+    profile=PROFILE,
     optimize_waypoints=True,
-    format='geojson',
+    format=FORMAT,
     instructions=False,
     validate=False,
-    radiuses=USE_RADIUSES)
+    radiuses=USE_RADIUSES,
+    options=ORS_OPTIONS
+    )
 
 folium.PolyLine(locations=[list(reversed(coord)) for coord in test_route['features'][0]['geometry']['coordinates']], color='blue').add_to(m)
 
